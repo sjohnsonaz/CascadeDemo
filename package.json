@@ -19,11 +19,12 @@
     "nodemon": "nodemon ./dist/scripts/main.js"
   },
   "dependencies": {
-    "cascade": "0.0.12",
+    "build-widgets": "https://github.com/sjohnsonaz/build-widgets.git",
+    "cascade": "^0.0.12",
+    "cascade-components": "^0.0.1",
     "cascade-validation": "0.0.1",
     "es6-shim": "^0.35.1",
-    "reflect-metadata": "^0.1.8",
-    "build-widgets": "https://github.com/sjohnsonaz/build-widgets.git"
+    "reflect-metadata": "^0.1.8"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",

@@ -1,6 +1,6 @@
 import Cascade, { Component } from 'cascade';
 
-import Button from '../components/Button';
+import { Button } from 'cascade-components';
 
 import ViewModel from '../ViewModel';
 import User from '../models/User';
