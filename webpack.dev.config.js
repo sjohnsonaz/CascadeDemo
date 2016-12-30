@@ -9,7 +9,7 @@ module.exports = {
         'styles': './src/styles/style.styl'
     },
     output: {
-        filename: './dist/bundle/[name].js',
+        filename: './public/bundle/[name].js',
         libraryTarget: 'var',
         library: '[name]'
     },
@@ -30,7 +30,7 @@ module.exports = {
         }]
     },
     plugins: [
-        new ExtractTextPlugin("./dist/bundle/[name].css")
+        new ExtractTextPlugin("./public/bundle/[name].css")
     ],
     postcss: [autoprefixer({
         browsers: ['last 2 versions']

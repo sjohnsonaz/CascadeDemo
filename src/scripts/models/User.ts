@@ -1,5 +1,5 @@
-import {observable} from 'cascade';
-import {required} from 'cascade-validation';
+import { observable } from 'cascade';
+import { required } from 'cascade-validation';
 
 export default class User {
     @required @observable firstName: string = '';

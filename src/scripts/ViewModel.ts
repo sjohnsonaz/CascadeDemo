@@ -1,11 +1,11 @@
-import {observable, array} from 'cascade';
+import { observable, array } from 'cascade';
 
 import User from './models/User';
 
 export default class ViewModel {
     @observable modalOpen: boolean = false;
     @observable innerModalOpen: boolean = false;
-    @observable users: User[] = [];
+    @array users: User[] = [];
     @observable user: User = new User('', '');
     @observable firstNameInput: HTMLElement;
 
