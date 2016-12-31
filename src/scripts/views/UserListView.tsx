@@ -64,7 +64,7 @@ export default class UserListView extends Component<IUserListViewProps> {
 
                 <h2>Button Group</h2>
                 <ButtonGroup>
-                    <Button popover="Popover" theme="primary">Edit</Button>
+                    <Button popover="Popover" popoverAlign="left" theme="primary">Edit</Button>
                     <Button theme="danger">Delete</Button>
                     <Button>View</Button>
                 </ButtonGroup>
