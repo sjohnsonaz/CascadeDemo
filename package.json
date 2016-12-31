@@ -21,7 +21,7 @@
   "dependencies": {
     "build-widgets": "https://github.com/sjohnsonaz/build-widgets.git",
     "cascade": "^0.0.12",
-    "cascade-components": "^0.0.1",
+    "cascade-components": "^0.0.2",
     "cascade-validation": "0.0.1",
     "es6-shim": "^0.35.1",
     "reflect-metadata": "^0.1.8"
