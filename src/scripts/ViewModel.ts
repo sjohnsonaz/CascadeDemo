@@ -13,7 +13,7 @@ export default class ViewModel {
     @observable firstNameInput: HTMLElement;
 
     openLocation(location: Location) {
-        this.location = location;
+        window.location.hash = location;
     }
 
     addUser() {
