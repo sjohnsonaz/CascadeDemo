@@ -4,7 +4,7 @@ import Cascade from 'cascade';
 
 import ViewModel from './ViewModel';
 import User from './models/User';
-import MainView from './views/MainView';
+import MainView from './views/layout/MainView';
 
 export default class Application {
     static run() {
@@ -13,9 +13,7 @@ export default class Application {
         window.User = User;
         Cascade.render(
             document.getElementById('root'),
-            <div className="container">
-                <MainView viewModel={viewModel} />
-            </div>,
+            <MainView viewModel={viewModel} />,
             function () {
                 console.log('started');
             }

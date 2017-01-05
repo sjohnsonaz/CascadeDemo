@@ -1,2 +1,70 @@
 json("../../styleconfig.json")
 @import "~build-widgets";
+
+$menu-bar-top-height ?= 60px;
+$menu-bar-padding ?= 10px;
+$menu-bar-background-color ?= $blue-light;
+$menu-bar-color ?= $white;
+$menu-bar-background-color-hover ?= $blue-dark;
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.container-menu-bar-top {
+    padding-top: $menu-bar-top-height;
+}
+
+.menu-bar {
+    background-color: $menu-bar-background-color;
+
+    & > .menu-bar-title {
+        display: block;
+        padding: 0 $menu-bar-padding;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: $menu-bar-top-height;
+        float: left;
+        color: $menu-bar-color;
+    }
+
+    & > ul {
+        display: block;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        float: left;
+
+        & > li {
+            display: block;
+            float: left;
+
+            & > a {
+                display: block;
+                height: $menu-bar-top-height;
+                padding: $menu-bar-padding;
+                line-height: $menu-bar-top-height - 2 * $menu-bar-padding;
+                color: $menu-bar-color;
+                text-decoration: none;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $menu-bar-background-color-hover;
+                }
+            }
+
+            &.menu-active > a {
+                background-color: $menu-bar-background-color-hover;
+            }
+        }
+    }
+
+    &.menu-bar-top {
+        height: $menu-bar-top-height;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+}

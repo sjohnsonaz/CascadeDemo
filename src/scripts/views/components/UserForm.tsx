@@ -2,8 +2,8 @@ import Cascade, { Component } from 'cascade';
 
 import { Button } from 'cascade-components';
 
-import ViewModel from '../ViewModel';
-import User from '../models/User';
+import ViewModel from '../../ViewModel';
+import User from '../../models/User';
 
 export interface IUserFormProps {
     viewModel: ViewModel;
