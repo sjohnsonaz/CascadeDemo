@@ -1,10 +1,12 @@
 import { observable, array } from 'cascade';
 
+import Router from '../util/Router';
 import User from '../models/User';
 
 export type Location = 'home' | 'components';
 
 export default class ViewModel {
+    router: Router;
     @observable location: Location = 'home';
     @observable modalOpen: boolean = false;
     @observable innerModalOpen: boolean = false;
@@ -14,6 +16,25 @@ export default class ViewModel {
 
     openLocation(location: Location) {
         window.location.hash = location;
+    }
+
+    initRouter() {
+        this.router = new Router({
+            'home': [
+                () => {
+                    this.location = 'home';
+                }
+            ],
+            'components': [
+                () => {
+                    this.location = 'components';
+                }
+            ],
+            '': () => {
+                this.location = 'home';
+            }
+        });
+        this.router.listen();
     }
 
     addUser() {
