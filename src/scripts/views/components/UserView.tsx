@@ -2,7 +2,7 @@ import Cascade, { Component } from 'cascade';
 
 import { Button } from 'cascade-components';
 
-import ViewModel from '../../ViewModel';
+import ViewModel from '../../applications/ViewModel';
 import User from '../../models/User';
 
 export interface IUserViewProps {

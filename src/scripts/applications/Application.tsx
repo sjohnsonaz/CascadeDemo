@@ -2,11 +2,11 @@ declare var window: any;
 
 import Cascade from 'cascade';
 
-import Router from './util/Router';
+import Router from '../util/Router';
 
 import ViewModel from './ViewModel';
-import User from './models/User';
-import MainView from './views/layout/MainView';
+import User from '../models/User';
+import MainView from '../views/layout/MainView';
 
 export default class Application {
     router: Router;

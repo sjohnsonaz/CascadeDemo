@@ -1,6 +1,6 @@
 import Cascade, { Component } from 'cascade';
 
-import ViewModel, { Location } from '../../ViewModel';
+import ViewModel, { Location } from '../../applications/ViewModel';
 
 export interface ITopMenuProps {
     viewModel: ViewModel;

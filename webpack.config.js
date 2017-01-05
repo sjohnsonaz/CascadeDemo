@@ -5,7 +5,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        'main': './src/scripts/main.ts',
+        'main': './src/scripts/applications/main.ts',
         'styles': './src/styles/style.styl'
     },
     output: {
@@ -19,7 +19,7 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.tsx?$/,
-            loader: 'babel-loader?presets[]=es2015!ts-loader'
+            loader: 'ts-loader'
         }, {
             test: /\.styl$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!stylus-loader')
