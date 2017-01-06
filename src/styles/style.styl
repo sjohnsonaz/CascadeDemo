@@ -6,6 +6,7 @@ $menu-bar-padding ?= 10px;
 $menu-bar-background-color ?= $blue-light;
 $menu-bar-color ?= $white;
 $menu-bar-background-color-hover ?= $blue-dark;
+$menu-bar-shadow ?= $box-shadow-height-1;
 
 html, body {
     padding: 0;
@@ -18,6 +19,7 @@ html, body {
 
 .menu-bar {
     background-color: $menu-bar-background-color;
+    box-shadow: $menu-bar-shadow;
 
     & > .menu-bar-title {
         display: block;
@@ -34,7 +36,6 @@ html, body {
         padding: 0;
         margin: 0;
         list-style: none;
-        float: left;
 
         & > li {
             display: block;
@@ -45,17 +46,24 @@ html, body {
                 height: $menu-bar-top-height;
                 padding: $menu-bar-padding;
                 line-height: $menu-bar-top-height - 2 * $menu-bar-padding;
-                color: $menu-bar-color;
                 text-decoration: none;
                 cursor: pointer;
 
                 &:hover {
                     background-color: $menu-bar-background-color-hover;
                 }
+
+                &.menu-item {
+                    color: $menu-bar-color;
+                }
             }
 
             &.menu-active > a {
                 background-color: $menu-bar-background-color-hover;
+            }
+
+            &.pull-right {
+                float: right;
             }
         }
     }

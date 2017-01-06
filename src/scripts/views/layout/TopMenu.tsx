@@ -18,8 +18,10 @@ export default class TopMenu extends Component<ITopMenuProps> {
             <div className="menu-bar menu-bar-top">
                 <div className="menu-bar-title">Cascade</div>
                 <ul>
-                    <li className={location === 'home' ? 'menu-active' : ''}><a onclick={this.openLocation.bind(this, 'home')}>Home</a></li>
-                    <li className={location === 'components' ? 'menu-active' : ''}><a onclick={this.openLocation.bind(this, 'components')}>Components</a></li>
+                    <li className={location === 'home' ? 'menu-active' : ''}><a className="menu-item" href="#home">Home</a></li>
+                    <li className={location === 'components' ? 'menu-active' : ''}><a className="menu-item" href="#components">Components</a></li>
+                    <li className="pull-right"><a href="https://github.com/sjohnsonaz/cascade">GitHub</a></li>
+                    <li className="pull-right"><a href="https://github.com/sjohnsonaz/cascade/releases">0.0.13</a></li>
                 </ul>
             </div>
         );

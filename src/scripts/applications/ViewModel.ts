@@ -23,15 +23,18 @@ export default class ViewModel {
             'home': [
                 () => {
                     this.location = 'home';
+                    document.title = 'Home - Cascade';
                 }
             ],
             'components': [
                 () => {
                     this.location = 'components';
+                    document.title = 'Components - Cascade';
                 }
             ],
             '': () => {
                 this.location = 'home';
+                document.title = 'Home - Cascade';
             }
         });
         this.router.listen();
