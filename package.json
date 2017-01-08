@@ -23,6 +23,7 @@
     "build-widgets": "https://github.com/sjohnsonaz/build-widgets.git",
     "cascade": "^0.0.13",
     "cascade-components": "^0.0.2",
+    "cascade-manager": "^0.0.0",
     "cascade-validation": "0.0.1",
     "es6-shim": "^0.35.1",
     "reflect-metadata": "^0.1.8"
