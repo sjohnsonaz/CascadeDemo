@@ -13,12 +13,18 @@ export default class MainView extends Component<IMainViewProps> {
         let {viewModel} = this.props;
         return (
             <div>
-                <h1>Cascade</h1>
-                <p>
-                    <strong>A modern library for creating user interfaces.</strong><br />
-                    <br />
-                    Your data and views are synchronized automatically, so you can focus on what you're doing, not on your framework.
-                </p>
+                <div className="billboard">
+                    <h1>Cascade</h1>
+                    <p>
+                        <strong>A modern library for creating user interfaces.</strong><br />
+                        <br />
+                        Your data and views are synchronized automatically, so you can focus on what you're doing, not on your framework.
+                    </p>
+                    <hr />
+                    <p>
+                        <Button className="button-big" theme="primary">Get Started</Button>
+                    </p>
+                </div>
                 <Section title="Reactive State">
                     Cascade State uses observable and computed properties to synchronize data.  Once a property is marked observable, any computed properties that reference it will be updated atomatically.  Updates are carefully batched to reduce computations.  Even better, if you need to read from a value that hasn't been computed yet, just read it!  Everything is ready when you need it!
                 </Section>
