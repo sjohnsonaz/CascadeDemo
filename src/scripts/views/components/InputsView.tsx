@@ -1,28 +1,58 @@
-import Cascade, { Component } from 'cascade';
+import Cascade, { Component, observable } from 'cascade';
 
-import { Button, ButtonGroup } from 'cascade-components';
+import { Button, ButtonGroup, Section } from 'cascade-components';
 
 export interface IInputsViewProps {
 
 }
 
 export default class InputsView extends Component<IInputsViewProps> {
+    @observable locked: boolean = false;
+
+    lockButton = () => {
+        this.locked = true;
+        window.setTimeout(() => {
+            this.locked = false;
+        }, 1000);
+    }
+
     render() {
         return (
-            <div>
-                <h2>Tooltip</h2>
+            <Section title="Buttons">
+                <h3>Individual Buttons</h3>
+                <div>
+                    <Button>Edit</Button>
+                    <Button theme="primary">Save</Button>
+                    <Button theme="danger">Delete</Button>
+                </div>
+
+                <h3>Disabled Buttons</h3>
+                <div>
+                    <Button disabled>Edit</Button>
+                    <Button disabled theme="primary">Save</Button>
+                    <Button disabled theme="danger">Delete</Button>
+                </div>
+
+                <h3>Button Group</h3>
+                <ButtonGroup>
+                    <Button>View</Button>
+                    <Button popover="Popover" theme="primary" popoverAlign="left">Edit</Button>
+                    <Button theme="danger">Delete</Button>
+                </ButtonGroup>
+
+                <h3>Lockable Buttons</h3>
+                <div>
+                    <Button lockContent="Locked" locked={this.locked} onclick={this.lockButton}>Lockable Edit</Button>
+                    <Button lockContent="Locked" locked={this.locked} onclick={this.lockButton} theme="primary">Lockable Save</Button>
+                    <Button lockContent="Locked" locked={this.locked} onclick={this.lockButton} theme="danger">Lockable Delete</Button>
+                </div>
+
+                <h3>Tooltip</h3>
                 <Button tooltip="Information..." tooltipDirection="right">Tooltip</Button>
 
-                <h2>Popover</h2>
+                <h3>Popover</h3>
                 <Button popover={<span><strong>Popover</strong> Text</span>} popoverDirection="right">Popover</Button>
-
-                <h2>Button Group</h2>
-                <ButtonGroup>
-                    <Button popover="Popover" popoverAlign="left" theme="primary">Edit</Button>
-                    <Button theme="danger">Delete</Button>
-                    <Button>View</Button>
-                </ButtonGroup>
-            </div>
+            </Section>
         );
     }
 }

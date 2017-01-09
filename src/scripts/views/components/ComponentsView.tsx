@@ -18,15 +18,15 @@ export default class ComponentsViedw extends Component<IComponentsViedwProps> {
         return (
             <div>
                 <h1>Components</h1>
-                <Tab titles={['Users', 'Inputs', 'Containers']}>
-                    <div>
-                        <UserListView viewModel={viewModel} />
-                    </div>
+                <Tab titles={['Inputs', 'Containers', 'Examples']}>
                     <div>
                         <InputsView />
                     </div>
                     <div>
                         <ContainersView viewModel={viewModel} />
+                    </div>
+                    <div>
+                        <UserListView viewModel={viewModel} />
                     </div>
                 </Tab>
             </div>

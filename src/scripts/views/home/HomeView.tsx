@@ -9,6 +9,10 @@ export interface IMainViewProps {
 }
 
 export default class MainView extends Component<IMainViewProps> {
+    clickGetStarted() {
+        window.location.hash = 'components';
+    }
+
     render() {
         let {viewModel} = this.props;
         return (
@@ -22,7 +26,7 @@ export default class MainView extends Component<IMainViewProps> {
                     </p>
                     <hr />
                     <p>
-                        <Button className="button-big" theme="primary">Get Started</Button>
+                        <Button onclick={this.clickGetStarted} className="button-big" theme="primary">Get Started</Button>
                     </p>
                 </div>
                 <Section title="Reactive State">
