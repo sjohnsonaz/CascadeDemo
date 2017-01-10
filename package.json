@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "build-widgets": "https://github.com/sjohnsonaz/build-widgets.git",
-    "cascade": "^0.0.13",
+    "cascade": "^0.0.14",
     "cascade-components": "^0.0.2",
     "cascade-manager": "^0.0.0",
     "cascade-validation": "0.0.1",
