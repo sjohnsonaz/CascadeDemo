@@ -3,7 +3,7 @@ var config = {
     debug: false,
     port: 3001,
     mongodb: {
-        uri: 'mongodb://localhost/build-launchpad',
+        uri: 'mongodb://localhost/cascade-demo',
         options: {
             autoIndex: false
         },
