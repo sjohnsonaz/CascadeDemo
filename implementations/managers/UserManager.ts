@@ -1,5 +1,3 @@
-import { observable, computed } from 'cascade';
-
 import { IUser } from '../../interfaces/data/IUser';
 import { IUserModel } from '../../interfaces/models/IUserModel';
 import { IUserStore } from '../../interfaces/stores/IUserStore';
