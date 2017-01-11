@@ -5,6 +5,8 @@ import User from '../models/User';
 
 export type Location = 'home' | 'components';
 
+import UserConnection from '../../../implementations/connections/UserConnection';
+
 export default class ViewModel {
     router: Router;
     @observable location: Location = 'home';
@@ -51,5 +53,12 @@ export default class ViewModel {
 
     removeUser(user: User) {
         (this.users as any).remove(user);
+    }
+
+    login() {
+        var connection = new UserConnection('/api/');
+        connection.list({}).then((data) => {
+            console.log(data);
+        });
     }
 }
