@@ -8,6 +8,11 @@ export type Location = 'home' | 'components';
 import AuthConnection from '../implementations/connections/AuthConnection';
 import UserConnection from '../implementations/connections/UserConnection';
 
+import UserStore from '../implementations/stores/UserStore';
+
+import AuthState from '../implementations/states/AuthState';
+import UserManager from '../implementations/managers/UserManager';
+
 export default class ViewModel {
     router: Router;
     @observable location: Location = 'home';
@@ -16,6 +21,15 @@ export default class ViewModel {
     @array users: User[] = [];
     @observable user: User = new User('', '');
     @observable firstNameInput: HTMLElement;
+
+    states = {
+        authState: new AuthState(new AuthConnection('/api/')),
+        userManager: new UserManager(
+            new UserStore(
+                new UserConnection('/api/')
+            )
+        )
+    };
 
     openLocation(location: Location) {
         window.location.hash = location;
@@ -54,22 +68,5 @@ export default class ViewModel {
 
     removeUser(user: User) {
         (this.users as any).remove(user);
-    }
-
-    login() {
-        var connection = new AuthConnection('/api/');
-        connection.login({
-            username: '',
-            password: ''
-        }).then((data) => {
-            console.log(data);
-        });
-    }
-
-    list() {
-        var connection = new UserConnection('/api/');
-        connection.list({}).then((data) => {
-            console.log(data);
-        });
     }
 }

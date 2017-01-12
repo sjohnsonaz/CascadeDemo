@@ -1,13 +1,9 @@
-// TODO: Fix this.
-declare var $global: any;
-
 import { observable } from 'cascade';
+import { Model } from 'cascade-manager';
 
 import { IUser, Role } from '../../interfaces/data/IUser';
 import { IUserModel } from '../../interfaces/models/IUserModel';
 import { IUserConnection } from '../../interfaces/connections/IUserConnection';
-
-import { Model } from 'cascade-manager';
 
 export default class UserModel extends Model<any, IUser, IUserConnection> implements IUserModel {
     @observable username: string;

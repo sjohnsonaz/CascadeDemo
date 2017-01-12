@@ -24,7 +24,7 @@
     "build-widgets": "https://github.com/sjohnsonaz/build-widgets.git",
     "cascade": "^0.0.14",
     "cascade-components": "^0.0.2",
-    "cascade-manager": "^0.0.1",
+    "cascade-manager": "^0.0.2",
     "cascade-validation": "0.0.1",
     "class-validator": "^0.6.1",
     "connect-mongo": "^1.2.1",
