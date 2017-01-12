@@ -1,12 +1,12 @@
 import { observable, array } from 'cascade';
 
-import Router from '../util/Router';
+import Router from '../lib/Router';
 import User from '../models/User';
 
 export type Location = 'home' | 'components';
 
-import AuthConnection from '../../../implementations/connections/AuthConnection';
-import UserConnection from '../../../implementations/connections/UserConnection';
+import AuthConnection from '../implementations/connections/AuthConnection';
+import UserConnection from '../implementations/connections/UserConnection';
 
 export default class ViewModel {
     router: Router;

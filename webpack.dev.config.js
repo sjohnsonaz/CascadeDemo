@@ -5,9 +5,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        'main': './src/scripts/applications/main.ts',
-        'styles': './src/styles/style.styl',
-        'mochaRunner': './src/mocha/BrowserRunner.ts'
+        'main': './scripts/applications/main.ts',
+        'styles': './styles/style.styl',
+        'mochaRunner': './scripts/mocha/BrowserRunner.ts'
     },
     output: {
         filename: './public/bundle/[name].js',
