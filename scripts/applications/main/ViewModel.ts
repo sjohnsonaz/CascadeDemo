@@ -16,6 +16,7 @@ import UserManager from '../../implementations/managers/UserManager';
 export default class ViewModel {
     router: Router;
     @observable location: Location = 'home';
+    @observable loginModalOpen: boolean = false;
     @observable modalOpen: boolean = false;
     @observable innerModalOpen: boolean = false;
     @array users: User[] = [];
@@ -30,6 +31,10 @@ export default class ViewModel {
             )
         )
     };
+
+    @observable get loggedIn(): boolean {
+        return this.states.authState.loggedIn;
+    }
 
     openLocation(location: Location) {
         window.location.hash = location;
