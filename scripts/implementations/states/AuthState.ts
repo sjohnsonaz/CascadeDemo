@@ -24,6 +24,7 @@ export default class AuthState extends State {
     }
 
     init() {
+        this.active = false;
         this.loginModel.wrap({
             username: '',
             password: ''
