@@ -10,9 +10,12 @@
             initialization: $initialization
         };
     </script>
-    <script src="/bundle/main.js"></script>
+    <script src="/bundle/admin.js"></script>
 {{/section}}
 
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<div id="application-root"></div>
+{{#section 'styles'}}
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link href="bundle/styles.css" rel="stylesheet" />
+{{/section}}
+
+<div id="root"></div>
