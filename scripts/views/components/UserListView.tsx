@@ -1,6 +1,6 @@
 import Cascade, { Component } from 'cascade';
 
-import ViewModel from '../../applications/ViewModel';
+import ViewModel from '../../applications/main/ViewModel';
 
 import UserForm from './UserForm';
 import UserView from './UserView';

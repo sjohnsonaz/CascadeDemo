@@ -2,9 +2,9 @@ declare var window: any;
 
 import Cascade from 'cascade';
 
-import ViewModel from './ViewModel';
-import User from './User';
-import MainView from '../views/layout/MainView';
+import ViewModel from '../main/ViewModel';
+import User from '../main/User';
+import MainView from '../../views/layout/MainView';
 
 export default class Application {
     viewModel: ViewModel = new ViewModel();

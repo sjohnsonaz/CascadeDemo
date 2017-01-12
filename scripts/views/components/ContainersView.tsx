@@ -2,7 +2,7 @@ import Cascade, { Component } from 'cascade';
 
 import { Button, Modal } from 'cascade-components';
 
-import ViewModel from '../../applications/ViewModel';
+import ViewModel from '../../applications/main/ViewModel';
 
 export interface IContainersViewProps {
     viewModel: ViewModel;
