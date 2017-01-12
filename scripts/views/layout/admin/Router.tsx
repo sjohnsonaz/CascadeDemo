@@ -1,9 +1,9 @@
 import Cascade, { Component } from 'cascade';
 
-import ViewModel from '../../applications/main/ViewModel';
+import ViewModel from '../../../applications/main/ViewModel';
 
-import HomeView from '../home/HomeView';
-import ComponentsView from '../components/ComponentsView';
+import HomeView from '../../home/HomeView';
+import ComponentsView from '../../components/ComponentsView';
 
 export interface IRouterProps {
     viewModel: ViewModel;

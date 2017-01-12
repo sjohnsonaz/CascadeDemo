@@ -4,7 +4,7 @@ import Cascade from 'cascade';
 
 import ViewModel from '../main/ViewModel';
 import User from '../main/User';
-import MainView from '../../views/layout/MainView';
+import MainView from '../../views/layout/admin/MainView';
 
 export default class Application {
     viewModel: ViewModel = new ViewModel();
