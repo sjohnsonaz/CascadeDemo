@@ -5,6 +5,7 @@ import User from '../models/User';
 
 export type Location = 'home' | 'components';
 
+import AuthConnection from '../../../implementations/connections/AuthConnection';
 import UserConnection from '../../../implementations/connections/UserConnection';
 
 export default class ViewModel {
@@ -56,6 +57,16 @@ export default class ViewModel {
     }
 
     login() {
+        var connection = new AuthConnection('/api/');
+        connection.login({
+            username: '',
+            password: ''
+        }).then((data) => {
+            console.log(data);
+        });
+    }
+
+    list() {
         var connection = new UserConnection('/api/');
         connection.list({}).then((data) => {
             console.log(data);
