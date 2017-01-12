@@ -8,7 +8,9 @@ import { Connection } from 'cascade-manager';
 
 export default class AuthConnection extends Connection implements IAuthConnection {
     constructor(base: string, route?: string) {
-        super(base, route || 'auth/');
+        super(base, route || 'auth/', {
+            credentials: 'include'
+        });
     }
 
     get(): Promise<IIsLoggedIn> {

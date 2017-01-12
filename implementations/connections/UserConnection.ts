@@ -6,6 +6,8 @@ import { CrudConnection } from 'cascade-manager';
 
 export default class UserConnection extends CrudConnection<string, IUser, IUserQuery> implements IUserConnection {
     constructor(base: string, route?: string) {
-        super(base, route || 'user/');
+        super(base, route || 'user/', {
+            credentials: 'include'
+        });
     }
 }

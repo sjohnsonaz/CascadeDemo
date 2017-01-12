@@ -20,7 +20,8 @@ import handlebars from './lib/handlebars';
 
 import config from './config';
 
-mongoose.connect(config.mongodb.uri, config.mongodb.options, function(err) {
+(mongoose as any).Promise = global.Promise;
+mongoose.connect(config.mongodb.uri, config.mongodb.options, function (err) {
     if (err) {
         console.log('ERROR connecting to: ' + config.mongodb.uri + '. ' + err);
     } else {
@@ -60,7 +61,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, config.publicPath)));
 
 // Inject session into response
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.locals.session = req.session;
     //res.locals.sessionUser = req.user;
     next();
@@ -69,7 +70,7 @@ app.use(function(req, res, next) {
 routing(app);
 
 // catch 404 and forward to error handler
-app.use(function(req: express.Request, res: express.Response, next: express.NextFunction) {
+app.use(function (req: express.Request, res: express.Response, next: express.NextFunction) {
     var err: any = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -80,7 +81,7 @@ app.use(function(req: express.Request, res: express.Response, next: express.Next
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+    app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
         res.status(err.status || 500);
         if (res.locals.isService) {
             res.json({
@@ -99,7 +100,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
     res.status(err.status || 500);
     if (res.locals.isService) {
         res.json({
