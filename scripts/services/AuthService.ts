@@ -1,11 +1,11 @@
 import * as express from 'express';
 import * as passport from 'passport';
 
-import { route, middleware } from '../base/back/Router';
-import Service from '../base/back/Service';
+import { route, middleware } from '../lib/back/Router';
+import Service from '../lib/back/Service';
 
 import UserGateway from '../implementations/gateways/UserGateway';
-import AuthHelper from '../helpers/AuthHelper';
+import AuthHelper from '../lib/helpers/AuthHelper';
 
 export default class AuthService extends Service<UserGateway> {
     constructor(userGateway: UserGateway) {

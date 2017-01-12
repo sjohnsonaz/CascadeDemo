@@ -1,7 +1,7 @@
 import { route, middleware } from './Router';
 import Service from './Service';
 import Gateway from './Gateway';
-import AuthHelper from '../../helpers/AuthHelper';
+import AuthHelper from '../../lib/helpers/AuthHelper';
 
 export default class CrudService<T extends Gateway<any>> extends Service<T> {
     constructor(base: string, gateway: T) {

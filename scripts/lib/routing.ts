@@ -1,4 +1,4 @@
-import ServiceHelper from '../helpers/ServiceHelper';
+import ServiceHelper from '../lib/helpers/ServiceHelper';
 
 import IndexRoute from '../routes/IndexRoute';
 import UserRoute from '../routes/UserRoute';

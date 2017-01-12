@@ -7,7 +7,7 @@ module.exports = {
     entry: {
         'main': './scripts/applications/main.ts',
         'styles': './styles/style.styl',
-        'mochaRunner': './scripts/mocha/BrowserRunner.ts'
+        'mochaRunner': './mocha/BrowserRunner.ts'
     },
     output: {
         filename: './public/bundle/[name].js',

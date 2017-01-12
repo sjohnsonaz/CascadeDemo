@@ -1,7 +1,7 @@
 import { observable, array } from 'cascade';
 
 import Router from '../lib/Router';
-import User from '../models/User';
+import User from './User';
 
 export type Location = 'home' | 'components';
 

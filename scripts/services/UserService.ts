@@ -1,7 +1,7 @@
-import Router, { route, middleware } from '../base/back/Router';
-import CrudService from '../base/back/CrudService';
+import Router, { route, middleware } from '../lib/back/Router';
+import CrudService from '../lib/back/CrudService';
 
-import AuthHelper from '../helpers/AuthHelper';
+import AuthHelper from '../lib/helpers/AuthHelper';
 import UserGateway from '../implementations/gateways/UserGateway';
 
 export default class UserService extends CrudService<UserGateway> {

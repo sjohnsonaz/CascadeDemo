@@ -1,4 +1,4 @@
-import Router, { route } from '../base/back/Router';
+import Router, { route } from '../lib/back/Router';
 
 export default class UserRoute extends Router {
     constructor() {

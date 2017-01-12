@@ -3,7 +3,7 @@ declare var window: any;
 import Cascade from 'cascade';
 
 import ViewModel from './ViewModel';
-import User from '../models/User';
+import User from './User';
 import MainView from '../views/layout/MainView';
 
 export default class Application {

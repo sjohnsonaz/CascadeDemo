@@ -4,10 +4,10 @@
  * Module dependencies.
  */
 
-var app = require('../dist/app');
+var app = require('../dist/scripts/app');
 var debug = require('debug')('build-launchpad:server');
 var http = require('http');
-var config = require('../dist/config').default;
+var config = require('../dist/scripts/config').default;
 
 /**
  * Get port from environment and store in Express.
