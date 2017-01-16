@@ -4,6 +4,7 @@ import { IUserManager } from '../../interfaces/managers/IUserManager';
 import { IUser } from '../../interfaces/data/IUser';
 
 import UserListView from './UserListView';
+import UserEditView from './UserEditView';
 
 export interface IUsersViewProps {
     userManager: IUserManager;
@@ -21,9 +22,9 @@ export default class UsersView extends Component<IUsersViewProps> {
                         case 0:
                             return <UserListView userManager={userManager} />;
                         case 1:
-                            return <div></div>;
+                            return <UserEditView userManager={userManager} />;
                         case 2:
-                            return <div></div>;
+                            return <UserEditView userManager={userManager} />;
                     }
                 })()}
             </div>
