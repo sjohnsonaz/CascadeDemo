@@ -7,7 +7,7 @@ import { IUserConnection } from '../../interfaces/connections/IUserConnection';
 
 export default class UserModel extends Model<any, IUser, IUserConnection> implements IUserModel {
     @observable username: string;
-    name: UserFullName = new UserFullName();
+    name: UserFullName;
     @observable password: string;
     @observable passwordVersion: number;
     @observable salt: string;
@@ -19,6 +19,7 @@ export default class UserModel extends Model<any, IUser, IUserConnection> implem
     wrap(data: IUser) {
         super.wrap(data);
         this.username = data.username;
+        this.name = new UserFullName();
         this.name.first = data.name.first;
         this.name.last = data.name.last;
         this.password = data.password;

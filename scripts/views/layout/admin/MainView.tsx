@@ -2,7 +2,7 @@ import Cascade, { Component } from 'cascade';
 
 import { Button, ButtonGroup, Modal, Tab } from 'cascade-components';
 
-import ViewModel from '../../../applications/main/ViewModel';
+import ViewModel from '../../../applications/admin/ViewModel';
 
 import TopMenu from './TopMenu';
 import Router from './Router';

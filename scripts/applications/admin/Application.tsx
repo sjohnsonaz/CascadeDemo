@@ -2,8 +2,7 @@ declare var window: any;
 
 import Cascade from 'cascade';
 
-import ViewModel from '../main/ViewModel';
-import User from '../main/User';
+import ViewModel from './ViewModel';
 import MainView from '../../views/layout/admin/MainView';
 
 export default class Application {
@@ -23,10 +22,6 @@ export default class Application {
                 console.log('started');
             }
         );
-        var user = new User('First', 'User');
-        viewModel.users.push(user);
-
-        window.viewModel = viewModel;
-        window.User = User;
+        window.application = application;
     }
 }

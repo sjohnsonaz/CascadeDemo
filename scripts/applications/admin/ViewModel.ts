@@ -1,30 +1,42 @@
-import { observable, array } from 'cascade';
+import Cascade, { observable } from 'cascade';
 
 import Router from '../../lib/Router';
-import User from './User';
-
-export type Location = 'home' | 'components';
 
 import AuthConnection from '../../implementations/connections/AuthConnection';
+import UserConnection from '../../implementations/connections/UserConnection';
+
+import UserStore from '../../implementations/stores/UserStore';
 
 import AuthState from '../../implementations/states/AuthState';
+import UserManager from '../../implementations/managers/UserManager';
+
+export type Location = 'home' | 'users';
 
 export default class ViewModel {
     router: Router;
     @observable location: Location = 'home';
-    @observable loginModalOpen: boolean = false;
-    @observable modalOpen: boolean = false;
-    @observable innerModalOpen: boolean = false;
-    @array users: User[] = [];
-    @observable user: User = new User('', '');
-    @observable firstNameInput: HTMLElement;
 
     states = {
-        authState: new AuthState(new AuthConnection('/api/'))
-    };
+        authState: new AuthState(new AuthConnection('/api/')),
+        userManager: new UserManager(
+            new UserStore(
+                new UserConnection('/api/')
+            )
+        )
+    }
 
     @observable get loggedIn(): boolean {
         return this.states.authState.loggedIn;
+    }
+
+    constructor() {
+        Cascade.subscribe(this, 'location', (location: Location) => {
+            switch (location) {
+                case 'users':
+                    this.states.userManager.init();
+                    break;
+            }
+        });
     }
 
     openLocation(location: Location) {
@@ -39,10 +51,10 @@ export default class ViewModel {
                     document.title = 'Home - Cascade';
                 }
             ],
-            'components': [
+            'users': [
                 () => {
-                    this.location = 'components';
-                    document.title = 'Components - Cascade';
+                    this.location = 'users';
+                    document.title = 'Users - Cascade';
                 }
             ],
             '': () => {
@@ -51,18 +63,5 @@ export default class ViewModel {
             }
         });
         this.router.listen();
-    }
-
-    addUser() {
-        let user = this.user;
-        let valid = user['firstName-valid'] && user['lastName-valid'];
-        if (valid) {
-            this.users.push(user);
-            this.user = new User('', '');
-        }
-    }
-
-    removeUser(user: User) {
-        (this.users as any).remove(user);
     }
 }

@@ -1,9 +1,8 @@
 import Cascade, { Component } from 'cascade';
 
-import ViewModel from '../../../applications/main/ViewModel';
+import ViewModel from '../../../applications/admin/ViewModel';
 
-import HomeView from '../../home/HomeView';
-import ComponentsView from '../../components/ComponentsView';
+import UsersView from '../../users/UsersView';
 
 export interface IRouterProps {
     viewModel: ViewModel;
@@ -16,13 +15,13 @@ export default class Router extends Component<IRouterProps> {
         let route;
         switch (viewModel.location) {
             case 'home':
-                route = <HomeView viewModel={viewModel} />;
+                route = <div></div>;
                 break;
-            case 'components':
-                route = <ComponentsView viewModel={viewModel} />;
+            case 'users':
+                route = <UsersView userManager={viewModel.states.userManager} />;
                 break;
             default:
-                route = <HomeView viewModel={viewModel} />;
+                route = <div></div>;
                 break;
         }
 
