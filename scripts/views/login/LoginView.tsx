@@ -31,17 +31,17 @@ export default class LoginView extends Component<ILoginViewProps> {
         let {loginModel, active, close} = authState;
         return (
             <Modal open={active} onclose={this.close} title="Log In">
-                <Form>
+                <Form onsubmit={this.login}>
                     <FormContainer title="Username">
-                        <input type="text" value={loginModel.username} onchange={this.changeValue.bind(this, 'username')} />
+                        <input type="text" className="input" value={loginModel.username} onchange={this.changeValue.bind(this, 'username')} />
                     </FormContainer>
                     <FormContainer title="Password">
-                        <input type="password" value={loginModel.password} onchange={this.changeValue.bind(this, 'password')} />
+                        <input type="password" className="input" value={loginModel.password} onchange={this.changeValue.bind(this, 'password')} />
                     </FormContainer>
                     <div className="pull-right">
                         <Button onclick={this.cancel}>Cancel</Button>
                         &nbsp;
-                        <Button onclick={this.login} theme="primary">Log In</Button>
+                        <Button onclick={this.login} theme="primary" type="submit">Log In</Button>
                     </div>
                 </Form>
             </Modal>
