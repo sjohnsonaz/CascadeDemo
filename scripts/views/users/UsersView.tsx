@@ -13,12 +13,12 @@ export interface IUsersViewProps {
 export default class UsersView extends Component<IUsersViewProps> {
     render() {
         let {userManager} = this.props;
-        let {slideIndex} = userManager;
+        let {operation} = userManager;
         return (
             <div>
                 <h1>Users</h1>
                 {(() => {
-                    switch (slideIndex) {
+                    switch (operation) {
                         case 0:
                             return <UserListView userManager={userManager} />;
                         case 1:
