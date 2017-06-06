@@ -31,7 +31,7 @@ export default class LoginView extends Component<ILoginViewProps> {
         let { loginModel, active, close } = authState;
         return (
             <Modal open={active} onclose={this.close} title="Log In">
-                <Form>
+                <Form onsubmit={this.login}>
                     <FormContainer title="Username">
                         <FormInput model={loginModel} modelProp="username" type="text" />
                     </FormContainer>
@@ -41,7 +41,7 @@ export default class LoginView extends Component<ILoginViewProps> {
                     <div className="pull-right">
                         <Button onclick={this.cancel}>Cancel</Button>
                         &nbsp;
-                        <Button onclick={this.login} theme="primary">Log In</Button>
+                        <Button onclick={this.login} theme="primary" type="submit">Log In</Button>
                     </div>
                 </Form>
             </Modal>
