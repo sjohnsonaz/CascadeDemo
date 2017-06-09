@@ -18,7 +18,7 @@ export default class ComponentsViedw extends Component<IComponentsViedwProps> {
         return (
             <div>
                 <h1>Components</h1>
-                <Tab titles={['Inputs', 'Containers', 'Examples']}>
+                <Tab titles={['Inputs', 'Containers', 'Examples']} animated>
                     <div>
                         <InputsView />
                     </div>
