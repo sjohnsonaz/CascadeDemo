@@ -17,7 +17,11 @@
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "dist",
     "sourceMap": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ]
   },
   "exclude": [
     "public",
@@ -26,8 +30,5 @@
     "webpack.config.js"
   ],
   "compileOnSave": true,
-  "buildOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  }
+  "buildOnSave": false
 }
