@@ -5,7 +5,6 @@ var config = {
     mongodb: {
         uri: 'mongodb://localhost/cascade-demo',
         options: {
-            autoIndex: false
         },
         session: {
             collection: 'sessions',
