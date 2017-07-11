@@ -1,7 +1,7 @@
 var config = {
-    url: 'http://localhost:3001',
+    url: 'http://localhost:3002',
     debug: false,
-    port: 3001,
+    port: 3002,
     mongodb: {
         uri: 'mongodb://localhost/cascade-demo',
         options: {
