@@ -19,7 +19,7 @@
     "nodemon": "nodemon ./dist/scripts/main.js"
   },
   "dependencies": {
-    "artistry": "^0.0.0",
+    "artistry": "^0.0.2",
     "body-parser": "~1.15.1",
     "cascade": "^0.0.24",
     "cascade-components": "0.0.5",
