@@ -1,4 +1,5 @@
 import Cascade, { Component } from 'cascade';
+import { MenuBar } from 'cascade-components';
 
 import ViewModel, { Location } from '../../../applications/main/ViewModel';
 
@@ -12,18 +13,32 @@ export default class TopMenu extends Component<ITopMenuProps> {
     }
 
     render() {
-        let {viewModel} = this.props;
-        let {location} = viewModel;
+        let { viewModel } = this.props;
+        let { location } = viewModel;
         return (
-            <div className="menu-bar menu-bar-top">
-                <div className="menu-bar-title">Cascade</div>
-                <ul>
-                    <li className={location === 'home' ? 'menu-active' : ''}><a className="menu-item" href="#home">Home</a></li>
-                    <li className={location === 'components' ? 'menu-active' : ''}><a className="menu-item" href="#components">Components</a></li>
-                    <li className="pull-right"><a href="https://github.com/sjohnsonaz/cascade">GitHub</a></li>
-                    <li className="pull-right"><a href="https://github.com/sjohnsonaz/cascade/releases">0.0.13</a></li>
-                </ul>
-            </div>
+            <MenuBar
+                top
+                title="Cascade"
+                links={[{
+                    title: 'Home',
+                    active: location === 'home',
+                    href: '#home'
+                }, {
+                    title: 'Components',
+                    active: location === 'components',
+                    href: '#components'
+                }, {
+                    title: 'GitHub',
+                    href: 'https://github.com/sjohnsonaz/cascade',
+                    simple: true,
+                    reverse: true
+                }, {
+                    title: '0.1.1',
+                    href: 'https://github.com/sjohnsonaz/cascade/releases',
+                    simple: true,
+                    reverse: true
+                }]}
+            />
         );
     }
 }
