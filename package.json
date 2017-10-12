@@ -19,12 +19,12 @@
     "nodemon": "nodemon ./dist/scripts/main.js"
   },
   "dependencies": {
-    "artistry": "^0.0.6",
+    "artistry": "0.0.12",
     "body-parser": "~1.15.1",
-    "cascade": "^0.1.1",
-    "cascade-components": "^0.0.9",
-    "cascade-manager": "^0.0.4",
-    "cascade-validation": "^0.0.1",
+    "cascade": "0.1.2",
+    "cascade-components": "0.0.13",
+    "cascade-manager": "0.0.5",
+    "cascade-validation": "0.0.1",
     "class-validator": "^0.6.1",
     "connect-mongo": "^1.2.1",
     "cookie-parser": "~1.4.3",
