@@ -1,4 +1,5 @@
-import { route, middleware } from './Router';
+import { route, middleware } from 'sierra';
+
 import Service from './Service';
 import Gateway from './Gateway';
 import AuthHelper from '../../lib/helpers/AuthHelper';

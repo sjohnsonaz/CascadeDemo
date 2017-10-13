@@ -1,4 +1,4 @@
-import Router, { route, middleware } from '../lib/back/Router';
+import { route, middleware } from 'sierra';
 import CrudService from '../lib/back/CrudService';
 
 import AuthHelper from '../lib/helpers/AuthHelper';

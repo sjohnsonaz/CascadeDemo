@@ -1,7 +1,8 @@
 import * as express from 'express';
 import * as passport from 'passport';
 
-import { route, middleware } from '../lib/back/Router';
+import { route, middleware } from 'sierra';
+
 import Service from '../lib/back/Service';
 
 import UserGateway from '../implementations/gateways/UserGateway';

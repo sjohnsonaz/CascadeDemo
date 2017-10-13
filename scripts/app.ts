@@ -1,5 +1,7 @@
 declare var __dirname: any;
 
+import { } from 'sierra';
+import { SimpleApplication } from 'sierra-express';
 import * as express from 'express';
 import * as path from 'path';
 import * as favicon from 'serve-favicon';
@@ -29,90 +31,51 @@ mongoose.connect(config.mongodb.uri, config.mongodb.options, function (err) {
     }
 });
 
-var app = express();
-app.locals.config = config;
-app.disable('x-powered-by');
-
-// view engine setup
-app.set('views', path.join(__dirname, config.viewsPath));
-var hbs = handlebars(app);
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(session({
-    secret: config.mongodb.session.secret,
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-    },
-    resave: config.mongodb.session.resave,
-    saveUninitialized: config.mongodb.session.saveUninitialized,
-    store: new MongoStore({
-        url: config.mongodb.uri,
-        collection: config.mongodb.session.collection
-    })
-}));
-authentication(app);
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(express.static(path.join(__dirname, config.publicPath)));
-
-// Inject session into response
-app.use(function (req, res, next) {
-    res.locals.session = req.session;
-    //res.locals.sessionUser = req.user;
-    next();
+let application = new SimpleApplication({
+    port: config.port
 });
 
-routing(app);
-
-// catch 404 and forward to error handler
-app.use(function (req: express.Request, res: express.Response, next: express.NextFunction) {
-    var err: any = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-        res.status(err.status || 500);
-        if (res.locals.isService) {
-            res.json({
-                message: err.message,
-                error: err,
-                stack: err.stack
-            });
-        } else {
-            res.render('error', {
-                message: err.message,
-                error: err
-            });
-        }
+application.addMiddleware = function () {
+    application.app.locals.config = config;
+    application.app.disable('x-powered-by');
+    
+    // view engine setup
+    application.app.set('views', path.join(__dirname, config.viewsPath));
+    var hbs = handlebars(application.app);
+    
+    // uncomment after placing your favicon in /public
+    //app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')));
+    application.app.use(logger('dev'));
+    application.app.use(bodyParser.json());
+    application.app.use(bodyParser.urlencoded({ extended: false }));
+    application.app.use(cookieParser());
+    application.app.use(session({
+        secret: config.mongodb.session.secret,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+        },
+        resave: config.mongodb.session.resave,
+        saveUninitialized: config.mongodb.session.saveUninitialized,
+        store: new MongoStore({
+            url: config.mongodb.uri,
+            collection: config.mongodb.session.collection
+        })
+    }));
+    authentication(application.app);
+    application.app.use(passport.initialize());
+    application.app.use(passport.session());
+    application.app.use(express.static(path.join(__dirname, config.publicPath)));
+    
+    // Inject session into response
+    application.app.use(function (req, res, next) {
+        res.locals.session = req.session;
+        //res.locals.sessionUser = req.user;
+        next();
     });
 }
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function (err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-    res.status(err.status || 500);
-    if (res.locals.isService) {
-        res.json({
-            message: err.message,
-            error: err
-        });
-    } else {
-        res.render('error', {
-            message: err.message,
-            error: {}
-        });
-    }
-});
 
-module.exports = app;
+routing(application);
+
+
+module.exports = application;

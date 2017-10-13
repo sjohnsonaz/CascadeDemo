@@ -1,6 +1,7 @@
-import Router, { route } from '../lib/back/Router';
+import { route, middleware } from 'sierra';
+import { Controller } from 'sierra-express';
 
-export default class UserRoute extends Router {
+export default class UserRoute extends Controller {
     constructor() {
         super('user');
     }

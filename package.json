@@ -8,15 +8,15 @@
   "main": "dist/scripts/applications/main.js",
   "typings": "dist/scripts/applications/main.d.ts",
   "scripts": {
-    "start": "node ./dist/main.js",
+    "start": "node ./bin/www",
     "build": "tsc",
     "prepublishOnly": "tsc --declaration",
     "test": "node src/mocha/NodeRunner.js",
     "min": "webpack --config webpack.config.js --progress",
     "dev": "webpack --config webpack.dev.config.js --progress",
     "watch": "webpack --config webpack.dev.config.js --watch --progress",
-    "node": "node ./dist/scripts/main.js",
-    "nodemon": "nodemon ./dist/scripts/main.js"
+    "node": "node ./bin/www",
+    "nodemon": "nodemon .bin/www"
   },
   "dependencies": {
     "artistry": "0.0.12",
@@ -42,6 +42,8 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.8",
     "serve-favicon": "~2.3.0",
+    "sierra": "0.0.1",
+    "sierra-express": "0.0.1",
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {

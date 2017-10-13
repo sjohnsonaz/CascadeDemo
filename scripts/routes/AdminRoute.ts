@@ -1,7 +1,9 @@
-import Router, { route, middleware } from '../lib/back/Router';
+import { route, middleware } from 'sierra';
+import { Controller } from 'sierra-express';
+
 import AuthHelper from '../lib/helpers/AuthHelper';
 
-export default class AdminRoute extends Router {
+export default class AdminRoute extends Controller {
     constructor() {
         super('admin');
     }
