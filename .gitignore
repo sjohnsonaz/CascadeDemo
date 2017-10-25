@@ -26,8 +26,11 @@ build/Release
 
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
-node_modules
-dist/
-public/bundle/
+node_modules/
+client/node_modules/
+client/dist/
+server/node_modules/
+server/dist/
+server/public/bundle/
 *.tgz
 .vscode/
