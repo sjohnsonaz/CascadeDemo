@@ -14,8 +14,8 @@ var config = {
         }
     },
     hashAlgorithm: 'sha256',
-    publicPath: '../../public',
-    viewsPath: '../../views',
+    publicPath: '../public',
+    viewsPath: '../views',
     passwordVersion: 0
 };
 

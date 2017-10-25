@@ -3,8 +3,8 @@
 /**
  * Module dependencies.
  */
-
-var app = require('../dist/app');
+var application = require('../dist/app');
+var app = application.app;
 var debug = require('debug')('build-launchpad:server');
 var http = require('http');
 var config = require('../dist/config').default;
@@ -20,6 +20,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
+application.init();
 var server = http.createServer(app);
 
 /**

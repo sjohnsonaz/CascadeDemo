@@ -31,51 +31,51 @@ mongoose.connect(config.mongodb.uri, config.mongodb.options, function (err) {
     }
 });
 
-let application = new SimpleApplication({
+class DemoApplication extends SimpleApplication {
+    addMiddleware() {
+        application.app.locals.config = config;
+        application.app.disable('x-powered-by');
+
+        // view engine setup
+        application.app.set('views', path.join(__dirname, config.viewsPath));
+        var hbs = handlebars(application.app);
+
+        // uncomment after placing your favicon in /public
+        //app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')));
+        application.app.use(logger('dev'));
+        application.app.use(bodyParser.json());
+        application.app.use(bodyParser.urlencoded({ extended: false }));
+        application.app.use(cookieParser());
+        application.app.use(session({
+            secret: config.mongodb.session.secret,
+            cookie: {
+                maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+            },
+            resave: config.mongodb.session.resave,
+            saveUninitialized: config.mongodb.session.saveUninitialized,
+            store: new MongoStore({
+                url: config.mongodb.uri,
+                collection: config.mongodb.session.collection
+            })
+        }));
+        authentication(application.app);
+        application.app.use(passport.initialize());
+        application.app.use(passport.session());
+        application.app.use(express.static(path.join(__dirname, config.publicPath)));
+
+        // Inject session into response
+        application.app.use(function (req, res, next) {
+            res.locals.session = req.session;
+            //res.locals.sessionUser = req.user;
+            next();
+        });
+    }
+}
+
+let application = new DemoApplication({
     port: config.port
 });
 
-application.addMiddleware = function () {
-    application.app.locals.config = config;
-    application.app.disable('x-powered-by');
-    
-    // view engine setup
-    application.app.set('views', path.join(__dirname, config.viewsPath));
-    var hbs = handlebars(application.app);
-    
-    // uncomment after placing your favicon in /public
-    //app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')));
-    application.app.use(logger('dev'));
-    application.app.use(bodyParser.json());
-    application.app.use(bodyParser.urlencoded({ extended: false }));
-    application.app.use(cookieParser());
-    application.app.use(session({
-        secret: config.mongodb.session.secret,
-        cookie: {
-            maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-        },
-        resave: config.mongodb.session.resave,
-        saveUninitialized: config.mongodb.session.saveUninitialized,
-        store: new MongoStore({
-            url: config.mongodb.uri,
-            collection: config.mongodb.session.collection
-        })
-    }));
-    authentication(application.app);
-    application.app.use(passport.initialize());
-    application.app.use(passport.session());
-    application.app.use(express.static(path.join(__dirname, config.publicPath)));
-    
-    // Inject session into response
-    application.app.use(function (req, res, next) {
-        res.locals.session = req.session;
-        //res.locals.sessionUser = req.user;
-        next();
-    });
-}
-
-
 routing(application);
-
 
 module.exports = application;
