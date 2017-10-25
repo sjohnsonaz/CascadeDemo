@@ -16,7 +16,7 @@
     "dev": "webpack --config ../client/webpack.dev.config.js --progress",
     "watch": "webpack --config ../client/webpack.dev.config.js --watch --progress",
     "node": "node ./bin/www",
-    "nodemon": "nodemon .bin/www"
+    "nodemon": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

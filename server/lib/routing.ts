@@ -10,6 +10,8 @@ import AdminRoute from '../routes/AdminRoute';
 import AuthService from '../services/AuthService';
 import UserService from '../services/UserService';
 
+//import TestService from '../services/TestService';
+
 import UserGateway from '../implementations/gateways/UserGateway';
 
 export default function run(application: SimpleApplication) {
@@ -22,14 +24,15 @@ export default function run(application: SimpleApplication) {
     application.addController(new AdminRoute());
     application.addController(new UserRoute());
     application.addController(new IndexRoute());
-
+    //application.addController(new TestService());
+    /*
     // catch 404 and forward to error handler
     application.app.use(function (req: Express.Request, res: Express.Response, next: Express.NextFunction) {
         var err: any = new Error('Not Found');
         err.status = 404;
         next(err);
     });
-
+    */
     // error handlers
 
     // development error handler
