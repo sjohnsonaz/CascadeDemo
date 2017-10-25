@@ -36,8 +36,8 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.8",
     "serve-favicon": "~2.3.0",
-    "sierra": "0.0.1",
-    "sierra-express": "0.0.1"
+    "sierra": "0.0.2",
+    "sierra-express": "0.0.2"
   },
   "devDependencies": {
     "@types/body-parser": "0.0.33",
