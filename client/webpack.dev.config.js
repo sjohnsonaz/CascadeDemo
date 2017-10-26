@@ -43,6 +43,6 @@ module.exports = {
         }]
     },
     plugins: [
-        new ExtractTextPlugin("./public/bundle/[name].css")
+        new ExtractTextPlugin("../server/public/bundle/[name].css")
     ]
 };
