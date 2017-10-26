@@ -10,4 +10,11 @@ export default class UserConnection extends CrudConnection<string, IUser, IUserQ
             credentials: 'include'
         });
     }
+
+    beforeCall(url: string | Request, init: RequestInit, noParse: boolean): RequestInit {
+        init = init || {};
+        // Change credentials default to 'include'.
+        init.credentials = init.credentials || 'include';
+        return init;
+    }
 }

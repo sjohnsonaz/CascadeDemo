@@ -13,6 +13,13 @@ export default class AuthConnection extends Connection implements IAuthConnectio
         });
     }
 
+    beforeCall(url: string | Request, init: RequestInit, noParse: boolean): RequestInit {
+        init = init || {};
+        // Change credentials default to 'include'.
+        init.credentials = init.credentials || 'include';
+        return init;
+    }
+
     get(): Promise<IIsLoggedIn> {
         return this.call(this.base, {});
     }
