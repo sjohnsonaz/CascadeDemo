@@ -2,7 +2,7 @@
   "name": "cascade-demo-client",
   "version": "0.0.0",
   "description": "An example Cascade project",
-  "repository": "https://www.github.com/sjohnsonaz/cascade-demo.git",
+  "repository": "https://www.github.com/sjohnsonaz/cascadedemo.git",
   "license": "MIT",
   "author": "Sean Johnson <sjohnson@sjohnsonaz.com>",
   "main": "dist/applications/main.js",
